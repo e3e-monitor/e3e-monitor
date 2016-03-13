@@ -1,0 +1,7 @@
+Flask==0.10.1
+six==1.9.0
+Flask-Restful==0.3.4
+uWSGI==2.0.11.1
+python-dateutil==2.4.2
+requests==2.7.0
+elasticsearch==1.7.0

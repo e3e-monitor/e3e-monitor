@@ -1,0 +1,13 @@
+twitter: 
+  consumer_key: kwClyiBad2ttiU3VFKuDkqQja
+  consumer_secret: kUV0GM16KUrcTQc8jhCeeU9TvkL8VbSvervCHshVMLAWuQIfqB
+  access_token: 114884142-cQfra0gubp2dm8uZW2MuyJaCYM9UxKjUWBaKLMHX
+  access_token_secret: XQ2orZ25p8ssakimqLotmvzXIMUzXtjtRpoyaocHvDtC8
+categories:
+  bomb: bomb,bombings,bombs,explosion,explosions
+  airstrike: airstrike,airstrikes
+  jet: jet,jets
+  drone: drone,drones
+elasticsearch:
+  hosts:
+  - ec2-52-29-7-137.eu-central-1.compute.amazonaws.com
