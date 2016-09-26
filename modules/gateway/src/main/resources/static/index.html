@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Brice Copy, e3e monitor association">
+    <link rel="icon" sizes="192x192" href="images/e3e-logo.png">
+    <link rel="shortcut icon" href="images/e3e-logo.png">
+    
+    <title>e3e Monitor map</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="/webjars/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="/webjars/leaflet-map/leaflet-map.html">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+                <div id="sidebar-wrapper-wrapper">     
+                       <div class="sidebar-brand"><img src="images/e3e-logo.png"></div>
+                    <ul class="sidebar-nav">
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Dashboard</a>
+                            </li>
+                            <li>
+                               <a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Report an event</a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Legal</a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Contact</a>
+                            </li>
+                        </ul>
+                </div>
+                <div class="sidebar-footer">&copy; 2016 - e3e Monitor association</div>
+        </div>
+        
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                         <!--a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a-->
+                       <h3>Events Map</h3>
+                        <leaflet-map zoom="5" fit-to-markers>
+                             <leaflet-scale-control position="topright" metric></leaflet-scale-control>
+                              <leaflet-circle latitude="-24.505" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="18.09"  radius="600">
+                                 Event <b>120213</b><br>
+                                 <b>Time:</b> 14-May-16 15:24:05.3400<br>
+                                 <b>Certainty:</b> 60%<br>
+                                 <b>Type:</b> Explosion
+                              </leaflet-circle>
+                              <leaflet-circle latitude="-24.207" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="18.18"  radius="1000">Event <b> 120313</b><br>
+                                 <b>Time:</b> 14-May-16 15:26:05.3400<br>
+                                 <b>Certainty:</b> 90%<br>
+                                 <b>Type:</b> Explosion
+                                 </leaflet-circle>
+                              <leaflet-circle latitude="-24.225" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="18.2"  radius="2000">Event <b> 12053</b><br>
+                                 <b>Time:</b> 14-May-16 15:34:05.3400<br>
+                                 <b>Certainty:</b> 80%<br>
+                                 <b>Type:</b> Detonation</leaflet-circle>
+                              <leaflet-circle latitude="-24.615" color="#aa0" fillColor="#a00" fillOpacity="0.3" fill="true" longitude="18.21"  radius="600">Event <b> 120453</b><br>
+                                 <b>Time:</b> 14-May-16 15:44:05.3400<br>
+                                 <b>Certainty:</b> 20%<br>
+                                 <b>Type:</b> Firearm
+                                 </leaflet-circle>
+                              <leaflet-circle latitude="-24.705" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="18.39"  radius="400">Event <b> 128213</b><br>
+                                 <b>Time:</b> 14-May-16 16:24:05.3400<br>
+                                 <b>Certainty:</b> 30%<br>
+                                 <b>Type:</b> Detonation
+                                 </leaflet-circle>
+
+                              <leaflet-circle latitude="-22.505" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="22.09"  radius="600">
+                                 Event <b>120213</b><br>
+                                 <b>Time:</b> 14-May-16 15:24:05.3400<br>
+                                 <b>Certainty:</b> 60%<br>
+                                 <b>Type:</b> Explosion
+                              </leaflet-circle>
+                              <leaflet-circle latitude="-22.607" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="22.18"  radius="1000">Event <b> 220313</b><br>
+                                 <b>Time:</b> 14-May-16 15:26:05.3400<br>
+                                 <b>Certainty:</b> 90%<br>
+                                 <b>Type:</b> Explosion
+                                 </leaflet-circle>
+                              <leaflet-circle latitude="-22.125" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="21.28"  radius="2000">Event <b> 22053</b><br>
+                                 <b>Time:</b> 14-May-16 15:34:05.3400<br>
+                                 <b>Certainty:</b> 80%<br>
+                                 <b>Type:</b> Detonation</leaflet-circle>
+                              <leaflet-circle latitude="-22.215" color="#aa0" fillColor="#a00" fillOpacity="0.3" fill="true" longitude="21.11"  radius="600">Event <b> 220453</b><br>
+                                 <b>Time:</b> 14-May-16 15:44:05.3400<br>
+                                 <b>Certainty:</b> 20%<br>
+                                 <b>Type:</b> Firearm
+                                 </leaflet-circle>
+                              <leaflet-circle latitude="-22.805" color="#a00" fillColor="#a00" fillOpacity="0.8" fill="true" longitude="21.39"  radius="400">Event <b> 228213</b><br>
+                                 <b>Time:</b> 14-May-16 16:24:05.3400<br>
+                                 <b>Certainty:</b> 30%<br>
+                                 <b>Type:</b> Detonation
+                                 </leaflet-circle>
+                                 
+                                 
+                           </leaflet-map>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.5.RELEASE</version>
+	</parent>
+	<groupId>ch.e3e</groupId>
+	<artifactId>e3e-gateway</artifactId>
+	<packaging>${boot.packaging}</packaging>
+	<name>e3e Monitor Web Gateway</name>
+	<description>e3e Monitor Web Gateway</description>
+	<version>1.0-SNAPSHOT</version>
+	<properties>
+		<main.basedir>${basedir}/../..</main.basedir>
+		<java.version>1.8</java.version>
+		<boot.packaging>war</boot.packaging>
+		<boot.starter.tomcat.scope>provided</boot.starter.tomcat.scope>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>leaflet-map</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.31</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>material-design-lite</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>roboto-fontface</artifactId>
+			<version>0.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>app-router</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>${boot.starter.tomcat.scope}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.5.RELEASE</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<addResources>true</addResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<profiles>
+		<profile>
+			<id>jar</id>
+
+			<properties>
+				<boot.packaging>jar</boot.packaging>
+				<boot.starter.tomcat.scope>compile</boot.starter.tomcat.scope>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.4.5</version>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals><goal>build</goal></goals>
+							</execution>
+							<execution>
+								<id>push-image</id>
+								<phase>deploy</phase>
+								<goals><goal>push</goal></goals>
+								<configuration>
+									<imageName>e3emonitor/${project.artifactId}</imageName>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<imageName>e3emonitor/${project.artifactId}</imageName>
+							<baseImage>java:8-alpine</baseImage>
+							<forceTags>true</forceTags>
+							<imageTags>
+								<imageTag>${project.version}</imageTag>
+							</imageTags>
+							<useConfigFile>true</useConfigFile>
+							<workdir>/opt/e3e-gateway</workdir>
+							<cmd>["java","-jar", "${project.build.finalName}.jar"]</cmd>
+							<exposes>
+								<expose>8080</expose>
+							</exposes>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}</directory>
+									<include>${project.build.finalName}.jar</include>
+									<targetPath>/opt/e3e-gateway</targetPath>
+								</resource>
+							</resources>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
